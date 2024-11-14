@@ -21,7 +21,7 @@ chmod +x fileConvert
 runNido() {
   stdbuf --output=L printf "Converting $1 to $1.bin ...\n"        | tee -a "$out"
   stdbuf --output=L ./fileConvert -m -w -f "$1" -o "$1.bin"  2>&1 | tee -a "$out"
-  stdbuf --output=L ./run_1_70 -f "$1.bin"                   2>&1 | tee -a "$out"
+  stdbuf --output=L ./run_1_70 -f "$1.bin" -c                2>&1 | tee -a "$out"
   stdbuf --output=L printf "\n\n"                                 | tee -a "$out"
   rm -rf "$1.bin"
 }
